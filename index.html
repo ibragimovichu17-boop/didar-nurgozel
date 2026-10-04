@@ -21,64 +21,71 @@
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
 
   <style>
     .font-cursive { font-family: 'Alex Brush', cursive; }
     .font-serif-custom { font-family: 'Cormorant Garamond', serif; }
     .font-sans { font-family: 'Montserrat', sans-serif; }
     
-    /* SURATDAKY ÝALY ARKA FON (BOKEH LIGHTS & WARM ATMOSPHERE) */
+    /* VINTAGE ITALIAN / ESTHETIC BACKGROUND */
     body {
-      background: radial-gradient(circle at 20% 20%, rgba(255,220,180,0.18) 0%, transparent 40%),
-                  radial-gradient(circle at 80% 80%, rgba(212,175,55,0.15) 0%, transparent 40%),
-                  radial-gradient(circle at 50% 50%, #2b2120 0%, #15100f 100%);
+      background-color: #ded8ce;
+      background-image: 
+        linear-gradient(rgba(244, 240, 234, 0.82), rgba(222, 216, 206, 0.88)),
+        url('https://images.unsplash.com/photo-1533105079780-92b9be482077?q=80&w=1000&auto=format&fit=crop');
+      background-size: cover;
+      background-position: center;
       background-attachment: fixed;
-      color: #7a5c43;
+      color: #2c2523;
       user-select: none;
       overflow-x: hidden;
       min-height: 100vh;
     }
 
-    /* AKRIL AÝNA KARTÇKA (GLASSMORPHISM WITH GOLDEN BORDER) */
-    .acrylic-card {
-      background: rgba(255, 252, 248, 0.45);
-      backdrop-filter: blur(25px);
-      -webkit-backdrop-filter: blur(25px);
-      border: 2px solid rgba(212, 175, 55, 0.6);
-      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4), 
-                  inset 0 0 25px rgba(255, 255, 255, 0.6);
+    /* VINTAGE ARCH CARD WITH FINE BORDER */
+    .arch-paper-card {
+      background: #f7f4ee;
+      border-top-left-radius: 180px;
+      border-top-right-radius: 180px;
+      border-bottom-left-radius: 20px;
+      border-bottom-right-radius: 20px;
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.18), inset 0 0 40px rgba(210, 200, 185, 0.3);
       position: relative;
+      border: 1px solid #dcd3c1;
     }
 
-    /* BURÇLARDAGY ALTYN ÇYZGY-BORDER (SURATDAKY ÝALY) */
-    .golden-inner-border {
+    .card-inner-line {
       position: absolute;
-      inset: 8px;
-      border: 1px solid rgba(184, 134, 11, 0.4);
+      inset: 10px;
+      border-top-left-radius: 170px;
+      border-top-right-radius: 170px;
+      border-bottom-left-radius: 14px;
+      border-bottom-right-radius: 14px;
+      border: 1px solid #c8bc9f;
       pointer-events: none;
-      border-radius: inherit;
     }
 
-    /* GÜL BEZEGLERI (GÜL EMOJILERI WE STILIZASIÝA) */
-    .flower-top-left {
-      position: absolute;
-      top: -15px;
-      left: -15px;
-      font-size: 2.8rem;
-      filter: drop-shadow(2px 4px 8px rgba(0,0,0,0.3));
-      z-index: 30;
-      line-height: 1;
+    /* WAX SEAL (GIZLIN WE SÜÝJÜLILIK BILEN ÝASALAN MÖR) */
+    .wax-seal {
+      width: 70px;
+      height: 70px;
+      background: linear-gradient(135deg, #b89862 0%, #8c6e3b 100%);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 2px 6px 15px rgba(0,0,0,0.25), inset -2px -2px 6px rgba(0,0,0,0.4), inset 2px 2px 6px rgba(255,255,255,0.4);
+      border: 2px solid #a3824c;
+      color: #f7f4ee;
     }
 
-    .flower-bottom-right {
-      position: absolute;
-      bottom: -15px;
-      right: -15px;
-      font-size: 2.8rem;
-      filter: drop-shadow(2px 4px 8px rgba(0,0,0,0.3));
-      z-index: 30;
-      line-height: 1;
+    /* GLASS CARD FOR OTHER SECTIONS */
+    .soft-card {
+      background: rgba(247, 244, 238, 0.92);
+      backdrop-filter: blur(8px);
+      border: 1px solid #dcd3c1;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
     }
 
     /* FULLSCREEN ENVELOPE OVERLAY */
@@ -95,21 +102,21 @@
       top: 0;
       bottom: 0;
       width: 50%;
-      background: #1e1817;
+      background: #eadecc;
       transition: transform 1.2s cubic-bezier(0.77, 0, 0.175, 1);
       z-index: 10;
     }
 
     .panel-left {
       left: 0;
-      border-right: 1px solid rgba(212, 175, 55, 0.3);
-      background-image: linear-gradient(135deg, #362927 0%, #1a1312 100%);
+      border-right: 1px solid #c8bc9f;
+      background-image: linear-gradient(135deg, #f2ebd9 0%, #dfd4c1 100%);
     }
 
     .panel-right {
       right: 0;
-      border-left: 1px solid rgba(212, 175, 55, 0.3);
-      background-image: linear-gradient(225deg, #362927 0%, #1a1312 100%);
+      border-left: 1px solid #c8bc9f;
+      background-image: linear-gradient(225deg, #f2ebd9 0%, #dfd4c1 100%);
     }
 
     #center-seal {
@@ -118,16 +125,6 @@
       left: 50%;
       transform: translate(-50%, -50%);
       z-index: 20;
-      width: 160px;
-      height: 160px;
-      border-radius: 50%;
-      background: #2a201e;
-      border: 2px solid #d4af37;
-      box-shadow: 0 10px 35px rgba(0, 0, 0, 0.8);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: all 0.9s cubic-bezier(0.68, -0.55, 0.265, 1.55);
     }
 
     #envelope-overlay.opened .panel-left { transform: translateX(-100%); }
@@ -148,13 +145,6 @@
       50% { transform: translate(-50%, -50%) scale(1.05); }
     }
     .pulse-seal { animation: subtlePulse 2.5s infinite ease-in-out; }
-
-    .gold-text {
-      color: #8a6428;
-      background: linear-gradient(135deg, #996e28 0%, #b8860b 50%, #6e4e1a 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
   </style>
 </head>
 <body class="font-sans antialiased overflow-x-hidden min-h-screen">
@@ -163,16 +153,16 @@
   <div id="envelope-overlay">
     <div class="panel-left"></div>
     <div id="center-seal" class="pulse-seal">
-      <span class="font-cursive text-5xl gold-text select-none whitespace-nowrap leading-none">
-        D & N
-      </span>
+      <div class="wax-seal">
+        <span class="font-serif-custom text-2xl font-bold tracking-wider">D|N</span>
+      </div>
     </div>
     <div class="panel-right"></div>
   </div>
 
   <!-- Aýdym-saz Oýnadjy -->
   <div class="fixed bottom-6 right-6 z-50">
-    <button id="music-btn" class="bg-[#b8860b] text-white rounded-full shadow-2xl flex items-center justify-center w-12 h-12 transition-transform active:scale-95">
+    <button id="music-btn" class="bg-[#8c6e3b] text-white rounded-full shadow-2xl flex items-center justify-center w-12 h-12 transition-transform active:scale-95 border border-[#a3824c]">
       <i id="music-icon" class="fas fa-music text-lg"></i>
     </button>
 
@@ -183,33 +173,47 @@
 
   <main class="max-w-md mx-auto px-4 py-8 space-y-10">
 
-    <!-- 1. BÖLÜM: HERO ARCH CARD (SURATDASY ÝALY AKRIL AÝNA WE GÜLLER) -->
-    <section class="acrylic-card rounded-3xl px-6 pt-12 pb-10 text-center relative mt-4" data-aos="fade-up" data-aos-duration="1200">
-      
-      <!-- Yokarky we Asaky burcdaky guller (Suratdaky yaly) -->
-      <div class="flower-top-left">🌹🌸</div>
-      <div class="flower-bottom-right">🌸🌹</div>
-      <div class="golden-inner-border"></div>
+    <!-- 1. BÖLÜM: ARCH INVITATION CARD (SURATDASY YALY VINTAGE STIL) -->
+    <section class="arch-paper-card px-6 pt-16 pb-12 text-center relative mt-4" data-aos="fade-up" data-aos-duration="1200">
+      <div class="card-inner-line"></div>
 
-      <!-- ARABIC/BISMILLAH BEZEG WE AYAT -->
-      <p class="font-serif-custom text-2xl text-[#8a6428] mb-1">بِسْمِ ٱللَّٰهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ</p>
-      <p class="font-serif-custom text-xs tracking-widest text-[#664b28] uppercase mb-6">"Biz Sizi jübüt-jübüt edip ýaratdyk"</p>
-
-      <div class="w-14 h-14 mx-auto mb-4 border border-[#b8860b]/60 rounded-full flex items-center justify-center bg-white/40" data-aos="zoom-in" data-aos-delay="300">
-        <span class="font-cursive text-2xl gold-text whitespace-nowrap">D&N</span>
+      <!-- WAX SEAL DECORATION ON CARD (SURATDASY MÖR ÝALY) -->
+      <div class="absolute -left-3 top-28 z-20 transform -rotate-12">
+        <div class="wax-seal scale-90">
+          <span class="font-serif-custom text-xl font-semibold">D|N</span>
+        </div>
       </div>
 
-      <h2 class="font-serif-custom text-2xl tracking-widest text-[#7a5824] uppercase mb-4" data-aos="fade-up" data-aos-delay="400">Toý Çakylygy</h2>
+      <!-- OLIVE BRANCH ILLUSTRATION -->
+      <div class="text-[#705e45] text-2xl mb-2 opacity-80" data-aos="zoom-in" data-aos-delay="200">
+        🌿
+      </div>
+      <p class="font-serif-custom text-lg tracking-widest text-[#5c4d38] uppercase mb-4">D & N</p>
 
-      <div class="my-4">
-        <h1 class="font-cursive text-6xl gold-text my-1" data-aos="fade-up" data-aos-delay="500">Didar</h1>
-        <p class="font-cursive text-3xl text-[#b8860b] my-1" data-aos="zoom-in" data-aos-delay="600">&</p>
-        <h1 class="font-cursive text-6xl gold-text my-1" data-aos="fade-up" data-aos-delay="700">Nurgözel</h1>
+      <!-- SAVE THE DATE TITLE -->
+      <h2 class="font-serif-custom text-4xl tracking-widest text-[#2c2523] uppercase font-light leading-none mb-2" data-aos="fade-up" data-aos-delay="300">
+        TOÝ ÇAKYLYGY
+      </h2>
+      <p class="font-serif-custom italic text-lg text-[#705e45] mb-6">Mähriban myhmanlarymyz üçin</p>
+
+      <div class="my-6">
+        <h1 class="font-serif-custom text-4xl text-[#2c2523] tracking-widest uppercase font-normal" data-aos="fade-up" data-aos-delay="400">DIDAR</h1>
+        <p class="font-cursive text-3xl text-[#8c6e3b] my-1" data-aos="zoom-in" data-aos-delay="500">&</p>
+        <h1 class="font-serif-custom text-4xl text-[#2c2523] tracking-widest uppercase font-normal" data-aos="fade-up" data-aos-delay="600">NURGÖZEL</h1>
       </div>
 
-      <div class="mt-8 pt-2" data-aos="fade-up" data-aos-delay="800">
-        <p class="font-serif-custom text-base tracking-wider text-[#664b28] mb-2">Aşak geçiriň</p>
-        <div class="animate-bounce text-[#b8860b] text-lg">
+      <!-- DATE SECTION -->
+      <div class="my-8 py-4 border-t border-b border-[#c8bc9f]/60 flex justify-center items-center gap-6" data-aos="zoom-in" data-aos-delay="700">
+        <span class="font-serif-custom text-lg uppercase tracking-wider text-[#5c4d38]">LALEZAR</span>
+        <span class="font-serif-custom text-3xl font-semibold text-[#2c2523]">17</span>
+        <span class="font-serif-custom text-lg uppercase tracking-wider text-[#5c4d38]">OKTÝABR</span>
+      </div>
+
+      <p class="font-serif-custom text-xl text-[#2c2523] tracking-widest mb-2" data-aos="fade-up" data-aos-delay="800">18:00</p>
+      <p class="font-serif-custom text-sm text-[#705e45] tracking-widest uppercase" data-aos="fade-up" data-aos-delay="900">2026 ÝYL</p>
+
+      <div class="mt-8 pt-2" data-aos="fade-up" data-aos-delay="1000">
+        <div class="animate-bounce text-[#8c6e3b] text-base">
           <i class="fas fa-chevron-down"></i>
         </div>
       </div>
@@ -218,86 +222,63 @@
     <!-- 2. BÖLÜM: GOŞGY WE SURAT -->
     <section class="text-center space-y-6">
       <div class="px-2" data-aos="fade-up" data-aos-duration="1000">
-        <p class="font-serif-custom italic text-2xl md:text-3xl leading-relaxed text-[#f3e5ab] font-semibold drop-shadow">
+        <p class="font-serif-custom italic text-2xl md:text-3xl leading-relaxed text-[#2c2523] font-medium">
           Bagt – söýgi bilen başlaýar,<br>
           söýgi bilen dowam edýär,<br>
           diňe söýgi bilen hem baky bolýar.
         </p>
       </div>
 
-      <div class="p-2 acrylic-card rounded-2xl mx-auto max-w-sm" data-aos="zoom-in-up" data-aos-duration="1200">
-        <div class="golden-inner-border"></div>
+      <div class="p-3 soft-card rounded-2xl mx-auto max-w-sm" data-aos="zoom-in-up" data-aos-duration="1200">
         <img id="main-photo"
              src="hero.jpg" 
              alt="Didar & Nurgözel" 
-             class="w-full h-auto aspect-[4/3] object-cover rounded-xl shadow-inner">
+             class="w-full h-auto aspect-[4/3] object-cover rounded-xl shadow-md">
       </div>
     </section>
 
-    <!-- 3. BÖLÜM: ÇAKYLYK WE SENE -->
-    <section class="acrylic-card text-center space-y-6 p-8 rounded-3xl" data-aos="fade-up" data-aos-duration="1000">
-      <div class="golden-inner-border"></div>
-
-      <p class="font-serif-custom text-2xl leading-relaxed text-[#593e1f] font-medium" data-aos="fade-up" data-aos-delay="100">
+    <!-- 3. BÖLÜM: ÇAKYLYK WE YZA WAGT SANAÝJY -->
+    <section class="soft-card text-center space-y-6 p-8 rounded-3xl" data-aos="fade-up" data-aos-duration="1000">
+      <p class="font-serif-custom text-2xl leading-relaxed text-[#2c2523]" data-aos="fade-up" data-aos-delay="100">
         Biz Sizi iň bagtly günümiziň gadyrly myhmany bolmagyňyza çagyrýarys!
       </p>
 
-      <div class="pt-2">
-        <h3 class="font-cursive text-4xl gold-text mb-4" data-aos="fade-up" data-aos-delay="200">Oktýabr 2026</h3>
-        
-        <div class="flex justify-center items-center gap-3 text-lg font-serif-custom text-[#593e1f]" data-aos="zoom-in" data-aos-delay="300">
-          <span class="opacity-50">15</span>
-          <span class="opacity-75">16</span>
-          
-          <div class="w-10 h-10 flex items-center justify-center font-bold text-white bg-[#b8860b] rounded-full shadow-md text-xl transform scale-110">
-            17
-          </div>
-
-          <span class="opacity-75">18</span>
-          <span class="opacity-50">19</span>
-        </div>
-
-        <p class="font-serif-custom text-2xl text-[#8a6428] font-semibold mt-4 tracking-widest" data-aos="fade-up" data-aos-delay="400">18:00</p>
-      </div>
-
       <!-- YZA WAGT SANAÝJY -->
-      <div class="pt-6 border-t border-[#b8860b]/30" data-aos="fade-up" data-aos-delay="500">
-        <p class="font-serif-custom text-xl text-[#593e1f] mb-4">Toý gününe çenli galdy:</p>
+      <div class="pt-4 border-t border-[#c8bc9f]/60" data-aos="fade-up" data-aos-delay="200">
+        <p class="font-serif-custom text-xl text-[#5c4d38] mb-4">Toý gününe çenli galdy:</p>
         
         <div class="grid grid-cols-4 gap-2 text-center">
-          <div class="bg-white/50 p-3 rounded-2xl border border-[#b8860b]/30 shadow-sm">
-            <span id="days" class="block font-sans font-bold text-2xl gold-text">00</span>
-            <span class="font-serif-custom text-xs text-[#593e1f]">gün</span>
+          <div class="bg-[#f7f4ee] p-3 rounded-2xl border border-[#dcd3c1] shadow-sm">
+            <span id="days" class="block font-sans font-semibold text-2xl text-[#2c2523]">00</span>
+            <span class="font-serif-custom text-xs text-[#705e45]">gün</span>
           </div>
-          <div class="bg-white/50 p-3 rounded-2xl border border-[#b8860b]/30 shadow-sm">
-            <span id="hours" class="block font-sans font-bold text-2xl gold-text">00</span>
-            <span class="font-serif-custom text-xs text-[#593e1f]">sagat</span>
+          <div class="bg-[#f7f4ee] p-3 rounded-2xl border border-[#dcd3c1] shadow-sm">
+            <span id="hours" class="block font-sans font-semibold text-2xl text-[#2c2523]">00</span>
+            <span class="font-serif-custom text-xs text-[#705e45]">sagat</span>
           </div>
-          <div class="bg-white/50 p-3 rounded-2xl border border-[#b8860b]/30 shadow-sm">
-            <span id="minutes" class="block font-sans font-bold text-2xl gold-text">00</span>
-            <span class="font-serif-custom text-xs text-[#593e1f]">minut</span>
+          <div class="bg-[#f7f4ee] p-3 rounded-2xl border border-[#dcd3c1] shadow-sm">
+            <span id="minutes" class="block font-sans font-semibold text-2xl text-[#2c2523]">00</span>
+            <span class="font-serif-custom text-xs text-[#705e45]">minut</span>
           </div>
-          <div class="bg-white/50 p-3 rounded-2xl border border-[#b8860b]/30 shadow-sm">
-            <span id="seconds" class="block font-sans font-bold text-2xl gold-text">00</span>
-            <span class="font-serif-custom text-xs text-[#593e1f]">sekunt</span>
+          <div class="bg-[#f7f4ee] p-3 rounded-2xl border border-[#dcd3c1] shadow-sm">
+            <span id="seconds" class="block font-sans font-semibold text-2xl text-[#2c2523]">00</span>
+            <span class="font-serif-custom text-xs text-[#705e45]">sekunt</span>
           </div>
         </div>
       </div>
     </section>
 
     <!-- 4. BÖLÜM: MEKAN (MARY ŞÄHERI NURANA RESTORANY) -->
-    <section class="acrylic-card text-center space-y-4 p-6 rounded-3xl" data-aos="fade-up" data-aos-duration="1000">
-      <div class="golden-inner-border"></div>
-
-      <i class="fas fa-map-marker-alt text-3xl text-[#b8860b]" data-aos="zoom-in" data-aos-delay="100"></i>
-      <h3 class="font-serif-custom text-3xl gold-text font-semibold" data-aos="fade-up" data-aos-delay="200">“Nurana” restorany</h3>
-      <p class="font-sans text-[#593e1f] font-medium text-base" data-aos="fade-up" data-aos-delay="300">Mary welaýaty, Mary şäheri</p>
+    <section class="soft-card text-center space-y-4 p-6 rounded-3xl" data-aos="fade-up" data-aos-duration="1000">
+      <i class="fas fa-map-marker-alt text-2xl text-[#8c6e3b]" data-aos="zoom-in" data-aos-delay="100"></i>
+      <h3 class="font-serif-custom text-3xl text-[#2c2523] font-semibold" data-aos="fade-up" data-aos-delay="200">“Nurana” restorany</h3>
+      <p class="font-sans text-[#5c4d38] font-medium text-base" data-aos="fade-up" data-aos-delay="300">Mary welaýaty, Mary şäheri</p>
       
       <div class="pt-2" data-aos="zoom-in" data-aos-delay="400">
         <a href="https://maps.google.com" 
            target="_blank" 
            rel="noopener noreferrer"
-           class="inline-flex items-center gap-2 bg-[#b8860b] text-white font-sans text-sm font-semibold px-6 py-3 rounded-full shadow-lg hover:bg-[#996e28] active:scale-95 transition-all">
+           class="inline-flex items-center gap-2 bg-[#8c6e3b] text-white font-sans text-sm font-medium px-6 py-3 rounded-full shadow-md hover:bg-[#705e45] active:scale-95 transition-all">
           <i class="fas fa-location-dot text-base"></i>
           <span>Kartada gör (Google Maps)</span>
         </a>
@@ -305,18 +286,20 @@
     </section>
 
     <!-- 5. BÖLÜM: FOOTER -->
-    <footer class="text-center pt-6 pb-10 space-y-4 border-t border-[#b8860b]/30" data-aos="fade-up" data-aos-duration="1000">
-      <p class="font-serif-custom text-2xl text-[#f3e5ab]" data-aos="fade-up" data-aos-delay="100">Hormatlamak bilen,<br><span class="gold-text font-semibold text-3xl">Atajanowlar maşgalasy</span></p>
+    <footer class="text-center pt-6 pb-10 space-y-4 border-t border-[#c8bc9f]/60" data-aos="fade-up" data-aos-duration="1000">
+      <p class="font-serif-custom text-2xl text-[#2c2523]" data-aos="fade-up" data-aos-delay="100">
+        Hormatlamak bilen,<br><span class="font-semibold text-3xl text-[#2c2523]">Atajanowlar maşgalasy</span>
+      </p>
       
       <div class="pt-4 space-y-2" data-aos="fade-up" data-aos-delay="200">
-        <div class="text-[#b8860b] text-lg"><i class="far fa-heart"></i></div>
-        <p class="font-serif-custom text-lg text-[#f3e5ab]/80">Made with love</p>
+        <div class="text-[#8c6e3b] text-lg"><i class="far fa-heart"></i></div>
+        <p class="font-serif-custom text-lg text-[#705e45]">Made with love</p>
       </div>
     </footer>
 
   </main>
 
-  <!-- AOS Animasiýa JS -->
+  <!-- AOS Animasiýa JS & SCRIPT.JS -->
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script src="script.js"></script>
 </body>
